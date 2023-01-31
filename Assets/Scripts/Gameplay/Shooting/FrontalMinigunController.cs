@@ -18,7 +18,9 @@ namespace Gameplay.Shooting
         public FrontalMinigunController(TurretModuleConfig config, Transform gunPointParentTransform, UnitType unitType) : base(config, gunPointParentTransform, unitType)
         {
             var minigunConfig = config.SpecificWeapon as MinigunWeaponConfig;
-            _weaponConfig = minigunConfig ? minigunConfig : throw new System.Exception("wrong config type was provided");
+            _weaponConfig = minigunConfig 
+                ? minigunConfig 
+                : throw new System.Exception("wrong config type was provided");
 
             _overheatMeter = new MeterWithCooldown(0.0f, _weaponConfig.TimeToOverheat, _weaponConfig.OverheatCoolDown);
             _overheatMeter.OnCooldownEnd += ResetSpray;

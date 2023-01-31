@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: LaserWeaponConfig
   m_EditorClassIdentifier: 
   <Id>k__BackingField: 9de289fe-8ef4-4997-92ca-df2beb833088
-  <Cooldown>k__BackingField: 0
-  <LaserProjectile>k__BackingField: {fileID: 11400000, guid: 3b179dd19bacde540b05a399a8f6b816, type: 2}
+  <Cooldown>k__BackingField: 1
+  <LaserProjectile>k__BackingField: {fileID: 11400000, guid: 674b8b1edf8c11f4f9d73219f8a312f0, type: 2}
   DamageFrequency: 0.5
   <WorkingTime>k__BackingField: 0
   <DurationOfWork>k__BackingField: 0
