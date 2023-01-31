@@ -16,6 +16,7 @@ namespace Gameplay.Shooting
                 WeaponType.Shotgun => new FrontalShotgunController(config, gunPointParentTransform, unitType),
                 WeaponType.Minigun => new FrontalMinigunController(config, gunPointParentTransform, unitType),
                 WeaponType.Railgun => new FrontalRailgunController(config, gunPointParentTransform, unitType),
+                WeaponType.Laser => new FrontalLaserController(config, gunPointParentTransform, unitType),
                 _ => throw new ArgumentOutOfRangeException(nameof(config.WeaponType), config.WeaponType, "A not-existent weapon type is provided")
             };
         }
