@@ -75,7 +75,7 @@ namespace Gameplay.Shooting
             Vector3 pelletVector = (pelletAngle + 90).ToVector3();
             //TODO check 90 degrees turn
             var projectile = ProjectileFactory.CreateProjectile(pelletVector);
-            AddController(projectile);
+            AddController(projectile);           
         }
     }   
 }

@@ -10,7 +10,8 @@ namespace Gameplay.Shooting
 {
     public sealed class FrontalLaserController : FrontalTurretController
     {
-        private readonly LaserWeaponConfig _weaponConfig;      
+        private readonly LaserWeaponConfig _weaponConfig; 
+        private readonly ProjectileConfig _projectileConfig;
 
         public FrontalLaserController(TurretModuleConfig config, Transform gunPointParentTransform, UnitType unitType) : base(config, gunPointParentTransform, unitType)
         {
@@ -22,10 +23,12 @@ namespace Gameplay.Shooting
 
         public override void CommenceFiring()
         {           
-
-            var projectile = ProjectileFactory.CreateProjectile();            
-
             CooldownTimer.Start();
+        }
+
+        private void LaserBeamLength()
+        {
+
         }
     }
 }

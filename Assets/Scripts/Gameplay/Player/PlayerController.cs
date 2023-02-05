@@ -128,8 +128,8 @@ namespace Gameplay.Player
                 viewTransform.position + _view.transform.TransformDirection(Vector3.up * (viewTransform.localScale.y + 15f)),
                 viewTransform.rotation
             );
-            crosshair.transform.parent = _view.transform;
-            AddGameObject(crosshair);
+            crosshair.transform.parent = _view.transform;            
+            AddGameObject(crosshair);            
         }
 
     }
