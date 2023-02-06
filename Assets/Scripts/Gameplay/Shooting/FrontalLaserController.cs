@@ -1,23 +1,25 @@
 using Abstracts;
 using Gameplay.Mechanics.Meter;
+using Gameplay.Player;
 using Scriptables.Modules;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Utilities.Mathematics;
+using Utilities.ResourceManagement;
 
 namespace Gameplay.Shooting
 {
     public sealed class FrontalLaserController : FrontalTurretController
     {
-<<<<<<< Updated upstream
+
         private readonly LaserWeaponConfig _weaponConfig; 
         private readonly ProjectileConfig _projectileConfig;
-=======
-        private readonly LaserWeaponConfig _weaponConfig;
         private readonly MeterWithCooldown _overheatMeter;
-        private float _reset;
->>>>>>> Stashed changes
+        private readonly ProjectileView _laserView;
+        private float _reset;        
+        private readonly PlayerView _playerView;
+
 
         public FrontalLaserController(TurretModuleConfig config, Transform gunPointParentTransform, UnitType unitType) : base(config, gunPointParentTransform, unitType)
         {
@@ -31,22 +33,16 @@ namespace Gameplay.Shooting
         }
 
         public override void CommenceFiring()
-<<<<<<< Updated upstream
-        {           
+
+        {
+           
             CooldownTimer.Start();
+            
         }
 
         private void LaserBeamLength()
         {
-
-=======
-        {
-            if (_overheatMeter.IsOnCooldown || IsOnCooldown) return;
-
-            FireLaser();
-            AddHeat();
-            CooldownTimer.Start();
->>>>>>> Stashed changes
+            _laserView.transform.localScale = new Vector3(1, _weaponConfig.BeamLength, 1);
         }
 
         protected override void OnDispose()
@@ -68,8 +64,20 @@ namespace Gameplay.Shooting
 
         private void FireLaser()
         {
-            var projectile = ProjectileFactory.CreateProjectile();
-            AddController(projectile);
+            
+            
+        }
+
+        private void AddLaser()
+        {
+            var laserView = ResourceLoader.LoadPrefab(_laserPrefabPath);
+            var viewTransform = _playerView.transform;
+            var laser = UnityEngine.Object.Instantiate(
+            laserView, viewTransform.position + _playerView.transform.TransformDirection(Vector3.up * (viewTransform.localScale.y + 15f)),
+                viewTransform.rotation
+            );
+            laser.transform.parent = _playerView.transform;
+            AddGameObject(laser);
         }
     }
 }

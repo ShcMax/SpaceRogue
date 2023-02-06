@@ -79,7 +79,7 @@ public static class Constants
             public static readonly string GunPoint = Path.Combine(STUFF, nameof(GunPoint));
             public static readonly string Crosshair = Path.Combine(STUFF, nameof(Crosshair));
             public static readonly string Background = Path.Combine(STUFF, nameof(Background));
-            public static readonly string MenuBackground = Path.Combine(STUFF, nameof(MenuBackground));
+            public static readonly string MenuBackground = Path.Combine(STUFF, nameof(MenuBackground));            
         }
 
         public record Canvas
