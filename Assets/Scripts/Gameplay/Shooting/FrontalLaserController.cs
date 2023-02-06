@@ -17,8 +17,7 @@ namespace Gameplay.Shooting
         private readonly ProjectileConfig _projectileConfig;
         private readonly MeterWithCooldown _overheatMeter;
         private readonly ProjectileView _laserView;
-        private float _reset;        
-        private readonly PlayerView _playerView;
+        private float _reset;             
 
 
         public FrontalLaserController(TurretModuleConfig config, Transform gunPointParentTransform, UnitType unitType) : base(config, gunPointParentTransform, unitType)
@@ -36,14 +35,10 @@ namespace Gameplay.Shooting
 
         {
            
-            CooldownTimer.Start();
+            CooldownTimer.Start();            
+            FireLaser();
             
-        }
-
-        private void LaserBeamLength()
-        {
-            _laserView.transform.localScale = new Vector3(1, _weaponConfig.BeamLength, 1);
-        }
+        }        
 
         protected override void OnDispose()
         {
@@ -64,8 +59,8 @@ namespace Gameplay.Shooting
 
         private void FireLaser()
         {
-            
-            
+            var projectile = ProjectileFactory.CreateProjectile();
+            AddController(projectile);
         }        
     }
 }
