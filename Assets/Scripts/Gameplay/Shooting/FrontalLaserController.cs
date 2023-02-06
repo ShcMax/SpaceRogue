@@ -66,18 +66,6 @@ namespace Gameplay.Shooting
         {
             
             
-        }
-
-        private void AddLaser()
-        {
-            var laserView = ResourceLoader.LoadPrefab(_laserPrefabPath);
-            var viewTransform = _playerView.transform;
-            var laser = UnityEngine.Object.Instantiate(
-            laserView, viewTransform.position + _playerView.transform.TransformDirection(Vector3.up * (viewTransform.localScale.y + 15f)),
-                viewTransform.rotation
-            );
-            laser.transform.parent = _playerView.transform;
-            AddGameObject(laser);
-        }
+        }        
     }
 }
