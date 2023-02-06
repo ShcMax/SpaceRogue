@@ -43,7 +43,7 @@ namespace Gameplay.Shooting
             var transform = _view.transform;
             transform.position += _movementDirection * (_config.Speed * 2 * deltaTime);
             
-            _remainingLifeTime -= deltaTime;
+            _remainingLifeTime -= deltaTime;            
         }
     }
 }
