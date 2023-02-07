@@ -16,3 +16,4 @@ MonoBehaviour:
   <ProjectileConfig>k__BackingField: {fileID: 11400000, guid: 674b8b1edf8c11f4f9d73219f8a312f0, type: 2}
   <WeaponType>k__BackingField: 5
   <SpecificWeapon>k__BackingField: {fileID: 11400000, guid: 5440164a7fd1d1c4896ee551e3e6b3e7, type: 2}
+  <LazerWeaponConfig>k__BackingField: {fileID: 11400000, guid: 5440164a7fd1d1c4896ee551e3e6b3e7, type: 2}

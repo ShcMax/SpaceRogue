@@ -7,6 +7,6 @@ namespace Gameplay.Shooting
         Shotgun,
         Minigun,
         Railgun,
-        Laser
+        Lazer
     }
 }

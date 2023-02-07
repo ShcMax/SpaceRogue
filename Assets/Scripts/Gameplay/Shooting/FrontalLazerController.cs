@@ -10,39 +10,39 @@ using Utilities.ResourceManagement;
 
 namespace Gameplay.Shooting
 {
-    public sealed class FrontalLaserController : FrontalTurretController
+    public sealed class FrontalLazerController : FrontalTurretController
     {
 
-        private readonly LaserWeaponConfig _weaponConfig; 
-        private readonly ProjectileConfig _projectileConfig;
+        private readonly LazerWeaponConfig _weaponConfig;        
         private readonly MeterWithCooldown _overheatMeter;
-        private readonly ProjectileView _laserView;
-        private float _reset;             
+        private readonly ProjectileView _lazerView;
+        private float _reset;       
 
-
-        public FrontalLaserController(TurretModuleConfig config, Transform gunPointParentTransform, UnitType unitType) : base(config, gunPointParentTransform, unitType)
+        public FrontalLazerController(TurretModuleConfig config, Transform gunPointParentTransform, UnitType unitType) : base(config, gunPointParentTransform, unitType)
         {
-            var laserConfig = config.SpecificWeapon as LaserWeaponConfig;
+            var laserConfig = config.SpecificWeapon as LazerWeaponConfig;
             _weaponConfig = laserConfig
                 ? laserConfig
                 : throw new System.Exception("wrong config type was provided");
 
             _overheatMeter = new MeterWithCooldown(0.0f, _weaponConfig.DurationOfWork, _weaponConfig.WorkingTime);
-            _overheatMeter.OnCooldownEnd += ResetLaser;
+            _overheatMeter.OnCooldownEnd += ResetLazer;
         }
 
         public override void CommenceFiring()
 
         {
-           
-            CooldownTimer.Start();            
-            FireLaser();
+            if (_overheatMeter.IsOnCooldown || IsOnCooldown) return;
+            CooldownTimer.Start();
+            AddHeat();
+            ResetLazer();
+            CreateLazer();
             
         }        
 
         protected override void OnDispose()
         {
-            _overheatMeter.OnCooldownEnd -= ResetLaser;
+            _overheatMeter.OnCooldownEnd -= ResetLazer;
             _overheatMeter.Dispose();
             base.OnDispose();
         }
@@ -52,15 +52,16 @@ namespace Gameplay.Shooting
             _overheatMeter.Fill(_weaponConfig.Cooldown);
         }
 
-        private void ResetLaser()
+        private void ResetLazer()
         {
             _reset = _weaponConfig.DurationOfWork * _weaponConfig.Multiplier;
         }
 
-        private void FireLaser()
+        private void CreateLazer()
         {
-            var projectile = ProjectileFactory.CreateProjectile();
-            AddController(projectile);
-        }        
+            var beam = _weaponConfig.BeamLength;             
+            ProjectileLazerFactory.CreateLazer(beam, _lazerView.gameObject, _weaponConfig.PlayerPrefab.transform);      
+        }
+        
     }
 }
