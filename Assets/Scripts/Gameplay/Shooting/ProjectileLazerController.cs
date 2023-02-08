@@ -9,28 +9,32 @@ namespace Gameplay.Shooting
 {
     public sealed class ProjectileLaserController : BaseController
     {
-        private readonly ProjectileConfig _projectileConfig;
-        private readonly LazerWeaponConfig _laserWeaponConfig;
-        private readonly ProjectileView _projectileView;
-        private readonly PlayerView _playerView;        
-        private float _remainingLifeTime;        
+        private readonly ProjectileConfig _config;
+        private readonly ProjectileView _view;
+        private readonly PlayerView _playerView;
+        private readonly LazerWeaponConfig _lazerWeaponConfig;
+        private readonly Vector3 _movementDirection;
+        private float _remainingLifeTime;
 
-
-        ProjectileLaserController(ProjectileConfig projectileConfig, LazerWeaponConfig laserWeaponConfig, ProjectileView projectileView, UnitType unitType)
+        public ProjectileLaserController(ProjectileConfig config, ProjectileView view, Vector3 movementDirection, UnitType unitType)
         {
-            _projectileConfig = projectileConfig;
-            _laserWeaponConfig = laserWeaponConfig;
-            _projectileView = projectileView;
-            _playerView = _laserWeaponConfig.PlayerPrefab;
-            _remainingLifeTime = _projectileConfig.LifeTime;
+            _config = config;
+            _movementDirection = movementDirection;
+            _view = view;          
+            AddGameObject(_view.gameObject);
+            _remainingLifeTime = config.LifeTime;
 
-            AddGameObject(_projectileView.gameObject);
-            AddGameObject(_playerView.gameObject);
+            var damageModel = new DamageModel(config.DamageAmount, unitType);
+            _view.Init(damageModel);
+            if (config.IsDestroyedOnHit) _view.CollisionEnter += Dispose;
 
-            var damageModel = new DamageModel(_projectileConfig.DamageAmount, unitType);
-            _projectileView.Init(damageModel);
+            EntryPoint.SubscribeToUpdate(TickDown);
+        }
 
-            if (_projectileConfig.IsDestroyedOnHit) _projectileView.CollisionEnter += Dispose;           
+        protected override void OnDispose()
+        {
+            _view.CollisionEnter -= Dispose;
+            EntryPoint.UnsubscribeFromUpdate(TickDown);
         }
 
         private void TickDown(float deltaTime)
@@ -40,11 +44,7 @@ namespace Gameplay.Shooting
                 Dispose();
                 return;
             }
-            var transform = _projectileView.transform;
-            transform.position += _playerView.transform.position + Vector3.up;
-            transform.localScale.Set(0.1f, _laserWeaponConfig.BeamLength, 0);
-
-            _remainingLifeTime -= deltaTime;            
-        }
+        }  
     }
 }
+
