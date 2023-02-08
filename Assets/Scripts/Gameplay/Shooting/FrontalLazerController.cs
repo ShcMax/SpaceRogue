@@ -42,8 +42,8 @@ namespace Gameplay.Shooting
 
         private void FireLazerProjectile()
         {           
-            var projectile = LazerFactory.CreateProjectile();
-            AddController(projectile);         
+            var projectile = ProjectileFactory.CreateProjectile();
+            AddController(projectile);        
         }
     }   
 }
