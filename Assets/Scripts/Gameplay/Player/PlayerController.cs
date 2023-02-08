@@ -23,7 +23,7 @@ namespace Gameplay.Player
 
         private readonly ResourcePath _configPath = new(Constants.Configs.Player.PlayerConfig);
         private readonly ResourcePath _viewPath = new(Constants.Prefabs.Gameplay.Player);
-        private readonly ResourcePath _crosshairPrefabPath = new(Constants.Prefabs.Stuff.Crosshair);
+        private readonly ResourcePath _crosshairPrefabPath = new(Constants.Prefabs.Stuff.Crosshair);        
 
         private readonly PlayerConfig _config;
         private readonly PlayerView _view;
@@ -52,7 +52,7 @@ namespace Gameplay.Player
             var movementController = AddMovementController(_config.Movement, _view);
             var frontalGunsController = AddFrontalGunsController(inventoryController.Turrets, _view);
             _healthController = AddHealthController(healthInfo, shieldInfo);
-            AddCrosshair();
+            AddCrosshair();            
         }
 
         public void DestroyPlayer()
@@ -130,7 +130,6 @@ namespace Gameplay.Player
             );
             crosshair.transform.parent = _view.transform;            
             AddGameObject(crosshair);            
-        }
-
+        }        
     }
 }

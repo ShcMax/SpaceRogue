@@ -1,4 +1,5 @@
 using Abstracts;
+using Gameplay.Player;
 using UnityEngine;
 
 namespace Gameplay.Shooting
@@ -9,6 +10,7 @@ namespace Gameplay.Shooting
         private readonly ProjectileView _view;        
         
         private readonly Transform _projectileSpawnTransform;
+
         private readonly UnitType _unitType;
 
 

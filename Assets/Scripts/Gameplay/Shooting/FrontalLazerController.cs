@@ -1,29 +1,27 @@
 using Abstracts;
 using Gameplay.Mechanics.Meter;
+using Gameplay.Player;
 using Scriptables.Modules;
 using UnityEngine;
 using Utilities.Mathematics;
+using Utilities.ResourceManagement;
 using Random = System.Random;
 
 namespace Gameplay.Shooting
 {
     public sealed class FrontalLazerController : FrontalTurretController
     {
-        private readonly LazerWeaponConfig _weaponConfig;
-        
-        private readonly MeterWithCooldown _overheatMeter;
-        
-        private float _currentSprayAngle;
+        private readonly LazerWeaponConfig _weaponConfig;  
+        private readonly MeterWithCooldown _overheatMeter;    
 
         public FrontalLazerController(TurretModuleConfig config, Transform gunPointParentTransform, UnitType unitType) : base(config, gunPointParentTransform, unitType)
         {
-            var minigunConfig = config.SpecificWeapon as LazerWeaponConfig;
-            _weaponConfig = minigunConfig 
-                ? minigunConfig 
+            var lazerConfig = config.SpecificWeapon as LazerWeaponConfig;
+            _weaponConfig = lazerConfig 
+                ? lazerConfig 
                 : throw new System.Exception("wrong config type was provided");
 
-            _overheatMeter = new MeterWithCooldown(0.0f, _weaponConfig.DurationOfWork, _weaponConfig.WorkingTime);
-                       
+            _overheatMeter = new MeterWithCooldown(0.0f, _weaponConfig.DurationOfWork, _weaponConfig.WorkingTime * _weaponConfig.Multiplier);
         }
 
         protected override void OnDispose()
@@ -36,19 +34,16 @@ namespace Gameplay.Shooting
         public override void CommenceFiring()
         {
             if (_overheatMeter.IsOnCooldown || IsOnCooldown) return;
-
-            for(int i = 0; i < _weaponConfig.CountBeam; i++)
-            {
-                FireSingleProjectile();
-            }           
+            
+                FireLazerProjectile();                      
             
             CooldownTimer.Start();
         }
 
-        private void FireSingleProjectile()
+        private void FireLazerProjectile()
         {           
-            var projectile = ProjectileFactory.CreateProjectile();
-            AddController(projectile);           
+            var projectile = LazerFactory.CreateProjectile();
+            AddController(projectile);         
         }
     }   
 }

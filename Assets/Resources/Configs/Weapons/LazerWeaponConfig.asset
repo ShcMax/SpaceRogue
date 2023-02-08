@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: LazerWeaponConfig
   m_EditorClassIdentifier: 
   <Id>k__BackingField: 3484daf8-f0af-4081-8ed2-ce2715740134
-  <Cooldown>k__BackingField: 0.1
+  <Cooldown>k__BackingField: 5
   DamageFrequency: 0.5
   <WorkingTime>k__BackingField: 5
   <DurationOfWork>k__BackingField: 5
   <BeamLength>k__BackingField: 3.6
   <Multiplier>k__BackingField: 0.016
+  CountBeam: 1

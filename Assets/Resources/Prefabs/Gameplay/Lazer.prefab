@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1037777090869754173}
   - component: {fileID: 6072567872007316402}
   - component: {fileID: 5373172656145502590}
-  - component: {fileID: 3644755857684252850}
+  - component: {fileID: -4021228426470281270}
   m_Layer: 0
   m_Name: Lazer
   m_TagString: Untagged
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 2adb0b75099cdf34d8c8cacddf384daa, type: 3}
-  m_Color: {r: 0, g: 1, b: 0.6694646, a: 1}
+  m_Color: {r: 0, g: 1, b: 0.9394505, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -98,7 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bc4826bdc194354916e6fc81c55d260, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!61 &3644755857684252850
+--- !u!61 &-4021228426470281270
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
