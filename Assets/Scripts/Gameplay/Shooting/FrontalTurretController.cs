@@ -13,8 +13,7 @@ namespace Gameplay.Shooting
         protected Timer CooldownTimer;
 
         protected readonly TurretModuleConfig Config;
-        protected readonly ProjectileFactory ProjectileFactory;
-        protected readonly ProjectileLazerFactory ProjectileLazerFactory;        
+        protected readonly ProjectileFactory ProjectileFactory;            
 
         private readonly ResourcePath _gunPointPrefab = new(Constants.Prefabs.Stuff.GunPoint);
 
@@ -33,8 +32,6 @@ namespace Gameplay.Shooting
             
             ProjectileFactory = new ProjectileFactory(Config.ProjectileConfig, Config.ProjectileConfig.Prefab, 
                 turretPoint.transform, unitType);
-
-            ProjectileLazerFactory = new ProjectileLazerFactory(Config.LazerWeaponConfig, Config.ProjectileConfig.Prefab, turretPoint.transform, unitType);
 
             CooldownTimer = new Timer(config.SpecificWeapon.Cooldown);
             

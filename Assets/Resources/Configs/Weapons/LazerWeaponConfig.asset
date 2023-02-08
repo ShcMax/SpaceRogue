@@ -14,11 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Id>k__BackingField: 3484daf8-f0af-4081-8ed2-ce2715740134
   <Cooldown>k__BackingField: 0.1
-  <ProjectilePrefab>k__BackingField: {fileID: 5373172656145502590, guid: a27e6e95fada9724f8ac567246e2eb82, type: 3}
-  <LazerProjectile>k__BackingField: {fileID: 11400000, guid: 674b8b1edf8c11f4f9d73219f8a312f0, type: 2}
-  <PlayerPrefab>k__BackingField: {fileID: 7505907477607818830, guid: b74d66ef2d8dfd34dad62db252386595, type: 3}
   DamageFrequency: 0.5
   <WorkingTime>k__BackingField: 5
   <DurationOfWork>k__BackingField: 5
-  <BeamLength>k__BackingField: 3.5
+  <BeamLength>k__BackingField: 3.6
   <Multiplier>k__BackingField: 0.016

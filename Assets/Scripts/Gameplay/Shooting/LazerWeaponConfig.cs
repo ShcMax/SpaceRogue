@@ -8,14 +8,11 @@ namespace Gameplay.Shooting
 
     public sealed class LazerWeaponConfig: SpecificWeaponConfig
     {
-        [field: SerializeField] public ProjectileView ProjectilePrefab { get; private set; }
-        [field: SerializeField] public ProjectileConfig LazerProjectile { get; private set; }
-        [field: SerializeField] public PlayerView PlayerPrefab { get; private set; }
-
         [field: SerializeField] public float DamageFrequency = 0.5f; // Периодичность нанесения урона
         [field: SerializeField] public float WorkingTime { get; private set; } // Время работы лазера
         [field: SerializeField, Min(0.1f)] public float DurationOfWork { get; private set; } // Время которое отработал лазер
         [field: SerializeField, Range (0.1f , 100f)] public float BeamLength { get; private set; } // Длина луча
-        [field: SerializeField, Range(0 , 1f)] public float Multiplier { get; private set; } // Множитель времени перезарядки        
+        [field: SerializeField, Range(0 , 1f)] public float Multiplier { get; private set; } // Множитель времени перезарядки
+        [field: SerializeField] public int CountBeam = 1;
     }
 }
