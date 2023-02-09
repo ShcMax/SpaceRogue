@@ -34,7 +34,7 @@ namespace Gameplay.Shooting
             ProjectileFactory = new ProjectileFactory(Config.ProjectileConfig, Config.ProjectileConfig.Prefab, 
                 turretPoint.transform, unitType);
 
-            LazerFactory = new LazerFactory(Config.ProjectileConfig, Config.ProjectileConfig.Prefab, 
+            LazerFactory = new LazerFactory(Config.ProjectileLazerConfig, Config.ProjectileLazerConfig.Prefab, 
                 turretPoint.transform, unitType);
 
             CooldownTimer = new Timer(config.SpecificWeapon.Cooldown);

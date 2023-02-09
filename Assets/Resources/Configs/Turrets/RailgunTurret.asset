@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Id>k__BackingField: railgun-turret
   <ProjectileConfig>k__BackingField: {fileID: 11400000, guid: 575afc6c802ac6540a8a60059efd0be9, type: 2}
+  <ProjectileLazerConfig>k__BackingField: {fileID: 11400000, guid: 753c4d20729231042bf9f5f41bb49427, type: 2}
   <WeaponType>k__BackingField: 4
   <SpecificWeapon>k__BackingField: {fileID: 11400000, guid: 6090ce35a3fc555459abd49b9512336c, type: 2}

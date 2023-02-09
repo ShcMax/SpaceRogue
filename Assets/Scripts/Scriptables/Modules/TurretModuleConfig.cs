@@ -7,7 +7,8 @@ namespace Scriptables.Modules
     public sealed class TurretModuleConfig : BaseModuleConfig
     {
         [field: SerializeField] public ProjectileConfig ProjectileConfig { get; private set; }
+        [field: SerializeField] public ProjectileLazerConfig ProjectileLazerConfig { get; private set;}
         [field: SerializeField] public WeaponType WeaponType { get; private set; }
-        [field: SerializeField] public SpecificWeaponConfig SpecificWeapon { get; private set; }      
+        [field: SerializeField] public SpecificWeaponConfig SpecificWeapon { get; private set; }       
     }
 }

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: LaserTurret
   m_EditorClassIdentifier: 
   <Id>k__BackingField: c286eda9-e979-4e1a-96d4-9799d1d8d5ad
-  <ProjectileConfig>k__BackingField: {fileID: 11400000, guid: 674b8b1edf8c11f4f9d73219f8a312f0, type: 2}
+  <ProjectileConfig>k__BackingField: {fileID: 11400000, guid: 9b3427fc821dfa147bdda608f22b390e, type: 2}
+  <ProjectileLazerConfig>k__BackingField: {fileID: 11400000, guid: 753c4d20729231042bf9f5f41bb49427, type: 2}
   <WeaponType>k__BackingField: 5
   <SpecificWeapon>k__BackingField: {fileID: 11400000, guid: 5440164a7fd1d1c4896ee551e3e6b3e7, type: 2}
-  <LazerWeaponConfig>k__BackingField: {fileID: 11400000, guid: 5440164a7fd1d1c4896ee551e3e6b3e7, type: 2}

@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad1e98f7068f3334e9c7fdd73fe34466, type: 3}
+  m_Name: ProjectileLazerConfig
+  m_EditorClassIdentifier: 
+  <Id>k__BackingField: fe5e19fb-e3b0-4ad0-acf4-cc631e646070
+  <Prefab>k__BackingField: {fileID: 8912474205686765676, guid: 354df955d13c9024896352ba002115af, type: 3}
+  <DamageAmount>k__BackingField: 1
+  <LifeTime>k__BackingField: 0.1
+  <BeamLength>k__BackingField: 2.1
+  <BeamWidth>k__BackingField: 0.017
+  <IsDestroyedOnHit>k__BackingField: 1

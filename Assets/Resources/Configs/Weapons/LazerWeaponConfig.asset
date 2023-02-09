@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 796f4f58541cd9645add17506df420b8, type: 3}
   m_Name: LazerWeaponConfig
   m_EditorClassIdentifier: 
-  <Id>k__BackingField: 3484daf8-f0af-4081-8ed2-ce2715740134
-  <Cooldown>k__BackingField: 5
-  DamageFrequency: 0.5
-  <WorkingTime>k__BackingField: 5
-  <DurationOfWork>k__BackingField: 5
-  <BeamLength>k__BackingField: 3.6
-  <Multiplier>k__BackingField: 0.016
+  <Id>k__BackingField: f34df08c-cae8-49eb-b17d-c014354e402e
+  <Cooldown>k__BackingField: 0.1
+  projectileLazerConfig: {fileID: 11400000, guid: 753c4d20729231042bf9f5f41bb49427, type: 2}
+  DamageFrequency: 0.25
+  <WorkingTime>k__BackingField: 1
+  <DurationOfWork>k__BackingField: 1
+  <Multiplier>k__BackingField: 0.015
   CountBeam: 1

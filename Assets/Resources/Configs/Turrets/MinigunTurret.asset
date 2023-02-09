@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Id>k__BackingField: minigun-turret
   <ProjectileConfig>k__BackingField: {fileID: 11400000, guid: b2a657a5c9ca54544a3d0cfd4070af1a, type: 2}
+  <ProjectileLazerConfig>k__BackingField: {fileID: 11400000, guid: 753c4d20729231042bf9f5f41bb49427, type: 2}
   <WeaponType>k__BackingField: 3
   <SpecificWeapon>k__BackingField: {fileID: 11400000, guid: d1f9d344806f3f044858b4c2571f8672, type: 2}

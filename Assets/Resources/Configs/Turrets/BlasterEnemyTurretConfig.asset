@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Id>k__BackingField: blaster-enemy-turret
   <ProjectileConfig>k__BackingField: {fileID: 11400000, guid: 40ca41f5caa4b1d419a68b4490c4c636, type: 2}
+  <ProjectileLazerConfig>k__BackingField: {fileID: 11400000, guid: 753c4d20729231042bf9f5f41bb49427, type: 2}
   <WeaponType>k__BackingField: 1
   <SpecificWeapon>k__BackingField: {fileID: 11400000, guid: f5294e08f8fa7b643b0589a59c6217d5, type: 2}
