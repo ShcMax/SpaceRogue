@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Id>k__BackingField: fe5e19fb-e3b0-4ad0-acf4-cc631e646070
   <Prefab>k__BackingField: {fileID: 8912474205686765676, guid: 354df955d13c9024896352ba002115af, type: 3}
-  <DamageAmount>k__BackingField: 1
+  <DamageAmount>k__BackingField: 5
   <LifeTime>k__BackingField: 0.1
   <BeamLength>k__BackingField: 2.1
-  <BeamWidth>k__BackingField: 0.017
+  <BeamWidth>k__BackingField: 0.021
   <IsDestroyedOnHit>k__BackingField: 1
