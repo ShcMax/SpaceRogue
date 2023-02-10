@@ -16,10 +16,10 @@ namespace Gameplay.Shooting
         protected readonly ProjectileFactory ProjectileFactory;
         protected readonly LazerFactory LazerFactory;
 
-        private readonly ResourcePath _gunPointPrefab = new(Constants.Prefabs.Stuff.GunPoint);
+        private readonly ResourcePath _gunPointPrefab = new(Constants.Prefabs.Stuff.GunPoint);        
 
         public FrontalTurretController(TurretModuleConfig config, Transform gunPointParentTransform, UnitType unitType)
-        {
+        {           
             Config = config;
             var gunPointView = ResourceLoader.LoadPrefab(_gunPointPrefab);
             
@@ -29,8 +29,8 @@ namespace Gameplay.Shooting
                     0.6f * gunPointParentTransform.localScale.y * Vector3.up),
                 gunPointParentTransform.rotation
             );
-            turretPoint.transform.parent = gunPointParentTransform;
-            
+            turretPoint.transform.parent = gunPointParentTransform;            
+
             ProjectileFactory = new ProjectileFactory(Config.ProjectileConfig, Config.ProjectileConfig.Prefab, 
                 turretPoint.transform, unitType);
 
@@ -39,7 +39,7 @@ namespace Gameplay.Shooting
 
             CooldownTimer = new Timer(config.SpecificWeapon.Cooldown);
             
-            AddGameObject(turretPoint);
+            AddGameObject(turretPoint);            
         }
 
         protected override void OnDispose()

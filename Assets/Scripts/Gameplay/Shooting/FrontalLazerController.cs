@@ -9,7 +9,7 @@ namespace Gameplay.Shooting
     public sealed class FrontalLazerController : FrontalTurretController
     {
         private readonly LazerWeaponConfig _weaponConfig;
-        private readonly MeterWithCooldown _overheatMeter;
+        private readonly MeterWithCooldown _overheatMeter;        
 
         private float _durationOfWork;
         public FrontalLazerController(TurretModuleConfig config, Transform gunPointParentTransform, UnitType unitType) : base(config, gunPointParentTransform, unitType)
@@ -25,8 +25,10 @@ namespace Gameplay.Shooting
 
         public override void CommenceFiring()
         {
+            if (_overheatMeter.IsOnCooldown || IsOnCooldown) return;
             FireLazer();
             AddHeat();
+            CooldownTimer.Start();
         }
 
         protected override void OnDispose()
@@ -42,7 +44,7 @@ namespace Gameplay.Shooting
         }
         private void ResetLazer()
         {
-            _durationOfWork = _weaponConfig.DurationOfWork * _weaponConfig.Multiplier;
+            _durationOfWork = _weaponConfig.WorkingTime + (_weaponConfig.DurationOfWork * _weaponConfig.Multiplier);
         }
 
         private void FireLazer()
