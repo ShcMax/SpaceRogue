@@ -10,7 +10,8 @@ namespace Gameplay.Shooting
     public sealed class ProjectileLazerController : BaseController
     {
         private readonly ProjectileLazerConfig _config;
-        private readonly ProjectileLazerView _view;       
+        private readonly ProjectileLazerView _view;  
+        private readonly LazerWeaponConfig _weapon;
 
         private readonly Vector3 _position;
         private float _remainingLifeTime;
@@ -29,7 +30,7 @@ namespace Gameplay.Shooting
 
             if (config.IsDestroyedOnHit) _view.CollisionEnter += Dispose;
 
-            EntryPoint.SubscribeToUpdate(TickDown);           
+            EntryPoint.SubscribeToUpdate(TickDown);            
         }
 
         protected override void OnDispose()
@@ -45,7 +46,9 @@ namespace Gameplay.Shooting
                 return;
             }
 
+
             var transform = _view.transform;
+
             transform.position += _position;
 
             transform.localScale = new Vector3(_config.BeamWidth, _config.BeamLength, 0);            

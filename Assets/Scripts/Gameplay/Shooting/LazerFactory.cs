@@ -8,7 +8,8 @@ using Utilities.ResourceManagement;
 public sealed class LazerFactory
 {
     private readonly ProjectileLazerConfig _config;    
-    private readonly ProjectileLazerView _view;    
+    private readonly ProjectileLazerView _view;   
+    private readonly LazerWeaponConfig _weaponConfig;
 
     private readonly Transform _projectileSpawnTransform;
     private readonly UnitType _unitType;
@@ -18,10 +19,10 @@ public sealed class LazerFactory
         _config = lazerConfig;        
         _view = view;        
         _projectileSpawnTransform = projectileSpawnTransform;
-        _unitType = unitType;
+        _unitType = unitType;        
     }
 
     public ProjectileLazerController CreateLazer() => CreateLazer(Vector3.up);
     public ProjectileLazerController CreateLazer(Vector3 direction) => new(_config, CreateProjectileView(), _projectileSpawnTransform.parent.TransformDirection(direction), _unitType);
-    private ProjectileLazerView CreateProjectileView() => Object.Instantiate(_view, _projectileSpawnTransform.position, _projectileSpawnTransform.rotation);
+    private ProjectileLazerView CreateProjectileView() => Object.Instantiate(_view, _projectileSpawnTransform.transform.position, _projectileSpawnTransform.rotation);
 }

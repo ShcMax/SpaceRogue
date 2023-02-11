@@ -1,6 +1,8 @@
 using Abstracts;
+using Gameplay.Damage;
 using Gameplay.Mechanics.Meter;
 using Scriptables.Modules;
+using System.Reflection;
 using UnityEngine;
 using Utilities.Mathematics;
 
@@ -9,7 +11,9 @@ namespace Gameplay.Shooting
     public sealed class FrontalLazerController : FrontalTurretController
     {
         private readonly LazerWeaponConfig _weaponConfig;
-        private readonly MeterWithCooldown _overheatMeter;        
+        private readonly MeterWithCooldown _overheatMeter;
+
+        private readonly ProjectileLazerConfig _projectileLazerConfig;        
 
         private float _durationOfWork;
         public FrontalLazerController(TurretModuleConfig config, Transform gunPointParentTransform, UnitType unitType) : base(config, gunPointParentTransform, unitType)
@@ -20,7 +24,7 @@ namespace Gameplay.Shooting
             : throw new System.Exception("wrong config type was provided");
 
             _overheatMeter = new MeterWithCooldown(0.0f, _weaponConfig.DurationOfWork, _weaponConfig.WorkingTime);
-            _overheatMeter.OnCooldownEnd += ResetLazer;
+            _overheatMeter.OnCooldownEnd += ResetLazer;                        
         }
 
         public override void CommenceFiring()
@@ -29,6 +33,8 @@ namespace Gameplay.Shooting
             FireLazer();
             AddHeat();
             CooldownTimer.Start();
+
+            CreateBeam();
         }
 
         protected override void OnDispose()
@@ -40,7 +46,7 @@ namespace Gameplay.Shooting
 
         private void AddHeat()
         {
-            _overheatMeter.Fill(_weaponConfig.Cooldown);            
+            _overheatMeter.Fill(_weaponConfig.Cooldown);
         }
         private void ResetLazer()
         {
@@ -51,6 +57,11 @@ namespace Gameplay.Shooting
         {
             var lazer = LazerFactory.CreateLazer();
             AddController(lazer);
+        }        
+        private void CreateBeam()
+        {           
+            GameObject lazer = Object.Instantiate(_weaponConfig.LazerPrefab) as GameObject;
+            lazer.transform.SetParent(_weaponConfig.GunPoint.transform, false);  
         }
     }
 }
