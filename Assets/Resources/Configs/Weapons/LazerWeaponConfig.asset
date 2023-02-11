@@ -14,9 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Id>k__BackingField: f34df08c-cae8-49eb-b17d-c014354e402e
   <Cooldown>k__BackingField: 0.1
+  gunPoint: {fileID: 0}
   projectileLazerConfig: {fileID: 11400000, guid: 753c4d20729231042bf9f5f41bb49427, type: 2}
   <LazerPrefab>k__BackingField: {fileID: 6714902188004607216, guid: 354df955d13c9024896352ba002115af, type: 3}
   DamageFrequency: 0.25
   <WorkingTime>k__BackingField: 5
   <DurationOfWork>k__BackingField: 5
-  <Multiplier>k__BackingField: 0.015
+  <Multiplier>k__BackingField: 0.07
