@@ -8,8 +8,7 @@ using Utilities.ResourceManagement;
 public sealed class LazerFactory
 {
     private readonly ProjectileLazerConfig _config;    
-    private readonly ProjectileLazerView _view;   
-    private readonly LazerWeaponConfig _weaponConfig;
+    private readonly ProjectileLazerView _view;  
 
     private readonly Transform _projectileSpawnTransform;
 
@@ -33,8 +32,10 @@ public sealed class LazerFactory
     public void CreateBeam()
     {
         _projectile = _config.Prefab.gameObject;
+        _projectile.transform.localScale = new Vector3(_config.BeamWidth, _config.BeamLength, 0);
+        _projectile.transform.position = new Vector3(0, _config.BeamPosition);
         _projectile = Object.Instantiate(_projectile) as GameObject;
-        _projectile.transform.SetParent(_projectileSpawnTransform, false);        
+        _projectile.transform.SetParent(_projectileSpawnTransform, false);
     } 
 
     public void DestroyBeam()

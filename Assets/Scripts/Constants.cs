@@ -1,4 +1,5 @@
 using System.IO;
+using static Constants.Prefabs;
 
 public static class Constants
 {
@@ -64,6 +65,8 @@ public static class Constants
 
             public static readonly string Player = Path.Combine(GAMEPLAY, nameof(Player));
 
+            public static readonly string Lazer = Path.Combine(GAMEPLAY, nameof(Lazer));
+
             public record Space
             {
                 private static readonly string SPACE = Path.Combine(GAMEPLAY, nameof(Space));
@@ -79,8 +82,7 @@ public static class Constants
             public static readonly string GunPoint = Path.Combine(STUFF, nameof(GunPoint));
             public static readonly string Crosshair = Path.Combine(STUFF, nameof(Crosshair));
             public static readonly string Background = Path.Combine(STUFF, nameof(Background));
-            public static readonly string MenuBackground = Path.Combine(STUFF, nameof(MenuBackground));
-            public static readonly string Lazer = Path.Combine(STUFF, nameof(Lazer));
+            public static readonly string MenuBackground = Path.Combine(STUFF, nameof(MenuBackground));            
         }
 
         public record Canvas

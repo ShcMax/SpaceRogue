@@ -29,7 +29,7 @@ namespace Gameplay.Shooting
                     0.6f * gunPointParentTransform.localScale.y * Vector3.up),
                 gunPointParentTransform.rotation
             );
-            turretPoint.transform.parent = gunPointParentTransform;            
+            turretPoint.transform.parent = gunPointParentTransform;
 
             ProjectileFactory = new ProjectileFactory(Config.ProjectileConfig, Config.ProjectileConfig.Prefab, 
                 turretPoint.transform, unitType);
@@ -39,7 +39,7 @@ namespace Gameplay.Shooting
 
             CooldownTimer = new Timer(config.SpecificWeapon.Cooldown);
             
-            AddGameObject(turretPoint);            
+            AddGameObject(turretPoint);    
         }
 
         protected override void OnDispose()

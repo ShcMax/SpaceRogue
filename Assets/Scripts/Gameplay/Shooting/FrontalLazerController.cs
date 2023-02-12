@@ -54,6 +54,11 @@ namespace Gameplay.Shooting
         private void FireLazer()
         {           
             LazerFactory.CreateBeam();
-        }               
+        }         
+        
+        private void DeactivateLazer()
+        {
+            LazerFactory.DestroyBeam();
+        }
     }
 }

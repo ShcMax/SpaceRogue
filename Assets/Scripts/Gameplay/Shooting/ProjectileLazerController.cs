@@ -10,8 +10,7 @@ namespace Gameplay.Shooting
     public sealed class ProjectileLazerController : BaseController
     {
         private readonly ProjectileLazerConfig _config;
-        private readonly ProjectileLazerView _view;  
-        private readonly LazerWeaponConfig _weapon;
+        private readonly ProjectileLazerView _view;          
 
         private readonly Vector3 _position;
         private float _remainingLifeTime;
@@ -45,9 +44,6 @@ namespace Gameplay.Shooting
                 Dispose();
                 return;
             }
-
-            var sizeBeam = _weapon.LazerPrefab;
-            sizeBeam.transform.localScale = new Vector3(_config.BeamWidth, _config.BeamLength, 0);
 
             var transform = _view.transform;
 
