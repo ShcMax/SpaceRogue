@@ -8,7 +8,7 @@ namespace Gameplay.Shooting
     [CreateAssetMenu(fileName = nameof(LazerWeaponConfig), menuName = "Configs/Weapons/" + nameof(LazerWeaponConfig))]
     public sealed class LazerWeaponConfig : SpecificWeaponConfig
     {
-        [field: SerializeField] public GameObject gunPoint;
+        [field: SerializeField] private GameObject gunPoint { get; set; }
 
         [field: SerializeField] public ProjectileLazerConfig projectileLazerConfig;
         [field: SerializeField] public GameObject LazerPrefab { get; set; }

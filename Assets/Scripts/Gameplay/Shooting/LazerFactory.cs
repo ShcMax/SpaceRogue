@@ -12,7 +12,10 @@ public sealed class LazerFactory
     private readonly LazerWeaponConfig _weaponConfig;
 
     private readonly Transform _projectileSpawnTransform;
+
     private readonly UnitType _unitType;
+
+    private GameObject _projectile;
     public LazerFactory(ProjectileLazerConfig lazerConfig,  ProjectileLazerView view,
         Transform projectileSpawnTransform, UnitType unitType)
     {
@@ -25,4 +28,17 @@ public sealed class LazerFactory
     public ProjectileLazerController CreateLazer() => CreateLazer(Vector3.up);
     public ProjectileLazerController CreateLazer(Vector3 direction) => new(_config, CreateProjectileView(), _projectileSpawnTransform.parent.TransformDirection(direction), _unitType);
     private ProjectileLazerView CreateProjectileView() => Object.Instantiate(_view, _projectileSpawnTransform.transform.position, _projectileSpawnTransform.rotation);
+
+
+    public void CreateBeam()
+    {
+        _projectile = _config.Prefab.gameObject;
+        _projectile = Object.Instantiate(_projectile) as GameObject;
+        _projectile.transform.SetParent(_projectileSpawnTransform, false);        
+    } 
+
+    public void DestroyBeam()
+    {
+        GameObject.Destroy(_projectile);
+    }
 }

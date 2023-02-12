@@ -30,7 +30,7 @@ namespace Gameplay.Shooting
 
             if (config.IsDestroyedOnHit) _view.CollisionEnter += Dispose;
 
-            EntryPoint.SubscribeToUpdate(TickDown);            
+            EntryPoint.SubscribeToUpdate(TickDown); 
         }
 
         protected override void OnDispose()
@@ -46,6 +46,8 @@ namespace Gameplay.Shooting
                 return;
             }
 
+            var sizeBeam = _weapon.LazerPrefab;
+            sizeBeam.transform.localScale = new Vector3(_config.BeamWidth, _config.BeamLength, 0);
 
             var transform = _view.transform;
 
