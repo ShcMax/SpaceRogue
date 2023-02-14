@@ -13,8 +13,8 @@ namespace Gameplay.Shooting
         [field: SerializeField, Min(0.1f)] public float DamageAmount { get; private set; } = 1f;        
         [field: SerializeField, Min(0.1f)] public float LifeTime { get; private set; } = 10.0f;
         [field: SerializeField, Range(1f, 100f)] public float BeamLength { get; set; } // Длина луча
-        [field: SerializeField, Range(0.01f, 0.5f)] public float BeamWidth { get; set; } // Ширина луча
-        [field: SerializeField, Range(0.1f, 100f)] public float BeamPosition { get; private set; } //Положение луча
+        [field: SerializeField, Range(0.01f, 0.5f)] public float BeamWidth { get; set; } // Ширина луча       
+        [field: SerializeField, Min(3.7f)] public float BeamPosition { get; private set; } = 5f;
         [field: SerializeField] public bool IsDestroyedOnHit { get; private set; } = true;
     }
 }

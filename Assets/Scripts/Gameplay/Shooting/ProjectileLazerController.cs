@@ -14,14 +14,14 @@ namespace Gameplay.Shooting
 
         private readonly Transform _position;
 
-        private float _remainingLifeTime;
+        private float _remainingLifeTime;        
 
         public ProjectileLazerController(ProjectileLazerConfig config, ProjectileLazerView view, Transform position, UnitType unitType)
         {
             _config = config;
             _view = view;
             _position = position;
-            _remainingLifeTime = _config.LifeTime;            
+            _remainingLifeTime = _config.LifeTime;             
 
             AddGameObject(_view.gameObject);
 
@@ -45,12 +45,12 @@ namespace Gameplay.Shooting
                 Dispose();
                 return;
             }
-
-            var lazer = _view.transform;            
+            
+            var lazer = _view.transform;     
 
             lazer.SetParent(_position, false);            
             lazer.localScale =  new Vector3(_config.BeamWidth, _config.BeamLength);
-            lazer.localPosition = new Vector3(0, _config.BeamPosition*_config.BeamLength);
+            lazer.localPosition = new Vector3(0, _config.BeamLength * _config.BeamPosition);
 
             _remainingLifeTime += deltaTime;
         }
