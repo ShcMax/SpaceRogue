@@ -10,8 +10,7 @@ namespace Gameplay.Shooting
     public sealed class ProjectileLazerController : BaseController
     {
         private readonly ProjectileLazerConfig _config;
-        private readonly ProjectileLazerView _view;
-        private readonly LazerWeaponConfig _lazerWeaponConfig;
+        private readonly ProjectileLazerView _view;        
 
         private readonly Transform _position;
 
@@ -51,7 +50,7 @@ namespace Gameplay.Shooting
 
             lazer.SetParent(_position, false);            
             lazer.localScale =  new Vector3(_config.BeamWidth, _config.BeamLength);
-            lazer.localPosition = new Vector3(0, _config.BeamPosition);
+            lazer.localPosition = new Vector3(0, _config.BeamPosition*_config.BeamLength);
 
             _remainingLifeTime += deltaTime;
         }
