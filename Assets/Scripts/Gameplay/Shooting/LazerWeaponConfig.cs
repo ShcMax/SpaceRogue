@@ -9,7 +9,8 @@ namespace Gameplay.Shooting
     public sealed class LazerWeaponConfig : SpecificWeaponConfig
     {
         [field: SerializeField] public ProjectileLazerConfig projectileLazerConfig;
-        [field: SerializeField] public GameObject LazerPrefab { get; set; }        
+
+        [field: SerializeField] public Transform LazerPointTransform;
 
         [field: SerializeField] public float DamageFrequency = 0.5f; // Периодичность нанесения урона   
         [field: SerializeField, Min(0.1f)] public float WorkingTime { get; private set; } = 5f;  // Время работы лазера

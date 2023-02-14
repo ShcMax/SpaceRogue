@@ -10,12 +10,14 @@ namespace Gameplay.Shooting
     public sealed class ProjectileLazerController : BaseController
     {
         private readonly ProjectileLazerConfig _config;
-        private readonly ProjectileLazerView _view;          
+        private readonly ProjectileLazerView _view;
+        private readonly LazerWeaponConfig _lazerWeaponConfig;
 
-        private readonly Vector3 _position;
+        private readonly Transform _position;
+
         private float _remainingLifeTime;
 
-        public ProjectileLazerController(ProjectileLazerConfig config, ProjectileLazerView view, Vector3 position, UnitType unitType)
+        public ProjectileLazerController(ProjectileLazerConfig config, ProjectileLazerView view, Transform position, UnitType unitType)
         {
             _config = config;
             _view = view;
@@ -45,11 +47,9 @@ namespace Gameplay.Shooting
                 return;
             }
 
-            var transform = _view.transform;
-
-            transform.position += _position;
-
-            transform.localScale = new Vector3(_config.BeamWidth, _config.BeamLength, 0);            
+            _view.transform.SetParent(_position, false);
+           
+            _view.transform.localScale =  new Vector3(_config.BeamWidth, _config.BeamLength, 0);            
 
             _remainingLifeTime += deltaTime;
         }

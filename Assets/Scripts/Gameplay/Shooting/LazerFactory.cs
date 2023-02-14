@@ -1,4 +1,5 @@
 using Abstracts;
+using Gameplay.Damage;
 using Gameplay.Shooting;
 using System.Collections;
 using System.Collections.Generic;
@@ -21,17 +22,17 @@ public sealed class LazerFactory
         _config = lazerConfig;        
         _view = view;        
         _projectileSpawnTransform = projectileSpawnTransform;
-        _unitType = unitType;        
+        _unitType = unitType;
     }
 
-    public ProjectileLazerController CreateLazer() => CreateLazer(Vector3.up);
-    public ProjectileLazerController CreateLazer(Vector3 direction) => new(_config, CreateProjectileView(), _projectileSpawnTransform.parent.TransformDirection(direction), _unitType);
-    private ProjectileLazerView CreateProjectileView() => Object.Instantiate(_view, _projectileSpawnTransform.transform.position, _projectileSpawnTransform.rotation);
+    public ProjectileLazerController CreateLazer() => CreateLazer(_projectileSpawnTransform);
+    public ProjectileLazerController CreateLazer(Transform position) => new(_config, CreateProjectileView(), position, _unitType);
+    private ProjectileLazerView CreateProjectileView() => Object.Instantiate(_view);
 
 
     public void CreateBeam()
     {
-        _projectile = _config.Prefab.gameObject;
+        _projectile = _config.Prefab.gameObject;                
         _projectile.transform.localScale = new Vector3(_config.BeamWidth, _config.BeamLength, 0);
         _projectile.transform.position = new Vector3(0, _config.BeamPosition);
         _projectile = Object.Instantiate(_projectile) as GameObject;

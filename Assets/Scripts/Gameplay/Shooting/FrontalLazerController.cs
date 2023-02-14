@@ -11,9 +11,7 @@ namespace Gameplay.Shooting
     public sealed class FrontalLazerController : FrontalTurretController
     {
         private readonly LazerWeaponConfig _weaponConfig;
-        private readonly MeterWithCooldown _overheatMeter;
-
-        private readonly ProjectileLazerConfig _projectileLazerConfig;       
+        private readonly MeterWithCooldown _overheatMeter;        
 
         private float _durationOfWork;
         public FrontalLazerController(TurretModuleConfig config, Transform gunPointParentTransform, UnitType unitType) : base(config, gunPointParentTransform, unitType)
@@ -22,9 +20,10 @@ namespace Gameplay.Shooting
             _weaponConfig = lazerConfig
             ? lazerConfig
             : throw new System.Exception("wrong config type was provided");
-
+           
             _overheatMeter = new MeterWithCooldown(0.0f, _weaponConfig.DurationOfWork, _weaponConfig.WorkingTime);
-            _overheatMeter.OnCooldownEnd += ResetLazer;  
+            _overheatMeter.OnCooldownEnd += ResetLazer;
+            _weaponConfig.LazerPointTransform = gunPointParentTransform;
         }
 
         public override void CommenceFiring()
@@ -52,8 +51,10 @@ namespace Gameplay.Shooting
         }
 
         private void FireLazer()
-        {           
-            LazerFactory.CreateBeam();
+        {
+            //LazerFactory.CreateBeam();
+            var lazer = LazerFactory.CreateLazer();
+            AddController(lazer);
         }         
         
         private void DeactivateLazer()
