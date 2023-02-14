@@ -22,8 +22,7 @@ namespace Gameplay.Shooting
             : throw new System.Exception("wrong config type was provided");
            
             _overheatMeter = new MeterWithCooldown(0.0f, _weaponConfig.DurationOfWork, _weaponConfig.WorkingTime);
-            _overheatMeter.OnCooldownEnd += ResetLazer;
-            _weaponConfig.LazerPointTransform = gunPointParentTransform;
+            _overheatMeter.OnCooldownEnd += ResetLazer;            
         }
 
         public override void CommenceFiring()
@@ -51,15 +50,9 @@ namespace Gameplay.Shooting
         }
 
         private void FireLazer()
-        {
-            //LazerFactory.CreateBeam();
+        {            
             var lazer = LazerFactory.CreateLazer();
             AddController(lazer);
-        }         
-        
-        private void DeactivateLazer()
-        {
-            LazerFactory.DestroyBeam();
         }
     }
 }

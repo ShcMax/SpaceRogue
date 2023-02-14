@@ -47,9 +47,11 @@ namespace Gameplay.Shooting
                 return;
             }
 
-            _view.transform.SetParent(_position, false);
-           
-            _view.transform.localScale =  new Vector3(_config.BeamWidth, _config.BeamLength, 0);            
+            var lazer = _view.transform;            
+
+            lazer.SetParent(_position, false);            
+            lazer.localScale =  new Vector3(_config.BeamWidth, _config.BeamLength);
+            lazer.localPosition = new Vector3(0, _config.BeamPosition);
 
             _remainingLifeTime += deltaTime;
         }
